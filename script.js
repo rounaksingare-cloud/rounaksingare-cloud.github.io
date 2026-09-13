@@ -233,3 +233,50 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+/* =========================================================
+   CONNECT FORM — WEB3FORMS
+   ========================================================= */
+
+const connectForm = document.getElementById("connect-form");
+const formStatus = document.getElementById("form-status");
+const connectSubmit = document.getElementById("connect-submit");
+
+if (connectForm && formStatus && connectSubmit) {
+  connectForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    formStatus.textContent = "Sending...";
+    formStatus.className = "form-status";
+    connectSubmit.disabled = true;
+
+    const formData = new FormData(connectForm);
+
+    try {
+      const response = await fetch(connectForm.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json"
+        }
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        formStatus.textContent =
+          "Thanks for reaching out! I'll get back to you soon.";
+        formStatus.className = "form-status success";
+
+        connectForm.reset();
+      } else {
+        throw new Error("Form submission failed.");
+      }
+    } catch (error) {
+      formStatus.textContent =
+        "Something went wrong. Please try again.";
+      formStatus.className = "form-status error";
+    } finally {
+      connectSubmit.disabled = false;
+    }
+  });
+}
