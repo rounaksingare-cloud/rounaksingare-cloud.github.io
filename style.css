@@ -1654,3 +1654,132 @@ p {
     transform: none;
   }
 }
+/* =========================================================
+   CONNECT FORM
+   ========================================================= */
+
+.connect-form {
+  position: relative;
+  z-index: 2;
+  margin-top: 25px;
+}
+
+.form-group {
+  margin-top: 16px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 7px;
+  color: #aab5c8;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.form-group label span {
+  color: #68758e;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 10px;
+  outline: none;
+  background: rgba(5, 8, 15, 0.55);
+  color: #f4f7fb;
+  font-family: inherit;
+  font-size: 0.82rem;
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.form-group input,
+.form-group select {
+  height: 45px;
+  padding: 0 13px;
+}
+
+.form-group textarea {
+  min-height: 105px;
+  padding: 12px 13px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #59667d;
+}
+
+.form-group select {
+  cursor: pointer;
+}
+
+.form-group select option {
+  background: #101728;
+  color: #f4f7fb;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: rgba(139, 124, 255, 0.65);
+  background: rgba(139, 124, 255, 0.045);
+  box-shadow: 0 0 0 3px rgba(139, 124, 255, 0.08);
+}
+
+.connect-form .full-width {
+  border: none;
+  cursor: pointer;
+}
+
+.connect-form .full-width:disabled {
+  opacity: 0.65;
+  cursor: wait;
+  transform: none;
+}
+
+.form-status {
+  min-height: 22px;
+  margin-top: 13px;
+  text-align: center;
+  font-size: 0.76rem;
+}
+
+.form-status.success {
+  color: #63f5b1;
+}
+
+.form-status.error {
+  color: #ff8e9e;
+}
+
+
+/* =========================
+   MOBILE FORM
+   ========================= */
+
+@media (max-width: 700px) {
+  .connect-form-card {
+    padding: 25px;
+  }
+
+  .form-group {
+    margin-top: 14px;
+  }
+
+  .form-group input,
+  .form-group select {
+    height: 43px;
+  }
+
+  .form-group textarea {
+    min-height: 95px;
+  }
+}
